@@ -1,0 +1,9 @@
+.container {
+    display: grid;
+    place-content: center;
+}
+
+.documentsWrapper {
+    display: flex;
+    flex-direction: column;
+}
