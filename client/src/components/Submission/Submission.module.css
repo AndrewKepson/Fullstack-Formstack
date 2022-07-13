@@ -1,0 +1,32 @@
+.submissionWrapper {
+  padding: 1.5rem;
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--formstack-shadow);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .cardTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .cardTop .submissionHeading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: larger;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .submissionWrapper {
+    padding: 1.5rem 4.5rem;
+  }
+}

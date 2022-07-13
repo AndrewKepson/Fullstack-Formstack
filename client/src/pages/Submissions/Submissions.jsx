@@ -6,6 +6,7 @@ import { userSelector } from '../../features/auth'
 
 import classes from './Submissions.module.css'
 import BeatLoader from 'react-spinners/BeatLoader'
+import { Submission } from '../../components'
 
 const Submissions = () => {
   const { id } = useParams()
@@ -16,21 +17,22 @@ const Submissions = () => {
 
   if (isLoading) return <BeatLoader />
 
+  console.log(data.submissions)
+
   return (
     <section>
       <h1>My Submissions for Form.Name</h1>
-      {data?.submissions?.length > 0 ? (
-        data?.submissions?.map(submission => (
-          <div key={submission.id}>
-            {submission.timestamp}
-            {/* pass google map with exact location */}
-          </div>
-        ))
-      ) : (
-        <span className={classes.noSubmissions}>
-          This Form has not yet received any submissions.
-        </span>
-      )}
+      <div className={classes.submissionsWrapper}>
+        {data?.submissions?.length > 0 ? (
+          data?.submissions?.map(submission => (
+            <Submission key={submission.id} submission={submission} />
+          ))
+        ) : (
+          <span className={classes.noSubmissions}>
+            This Form has not yet received any submissions.
+          </span>
+        )}
+      </div>
     </section>
   )
 }

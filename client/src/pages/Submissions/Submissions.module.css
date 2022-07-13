@@ -1,0 +1,13 @@
+.submissionsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .submissionsWrapper {
+    padding: 0 2rem 3rem 2rem;
+    gap: 2rem;
+  }
+}
