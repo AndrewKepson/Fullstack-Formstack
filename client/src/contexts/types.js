@@ -1,8 +1,0 @@
-export const GET_USER = 'GET_USER'
-export const SET_DOCS = 'SET_DOCS'
-export const SET_CURRENT = 'SET_CURRENT'
-export const UPDATE_CURRENT = 'UPDATE_CURRENT'
-export const DELETE_CURRENT = 'DELETE_CURRENT'
-export const CLEAR_CURRENT = 'CLEAR_CURRENT'
-export const DOCUMENTS_ERROR = 'DUCUMENTS_ERROR'
-export const CLEAR_ERRORS = 'CLEAR_ERRORS'

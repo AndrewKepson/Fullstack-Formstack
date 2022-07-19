@@ -1,9 +1,11 @@
 // * User Profile page dashboard to view forms, submissions, etc
 import { Link } from 'react-router-dom'
-import classes from './Dashboard.module.css'
+
 import { LatestFormSubmissions } from './LatestFormSubmissions'
+import classes from './Dashboard.module.css'
 
 export const Dashboard = ({ data }) => {
+  console.log(data)
   return (
     <div className={classes.dashboardContainer}>
       <div className={classes.formsList}>

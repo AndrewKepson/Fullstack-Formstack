@@ -1,11 +1,10 @@
 .profile {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .heading {
-    color: var(--formstack-green);
-    cursor: pointer;
-    height: 7%;
+  color: var(--formstack-green);
+  cursor: pointer;
 }

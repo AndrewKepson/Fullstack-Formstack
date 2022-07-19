@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 import classes from './FormEditor.module.css'
@@ -17,6 +17,8 @@ export const FormEditor = ({ columns, fields, updateForm }) => {
   }
 
   const handleSave = () => updateForm(formFields)
+
+  console.log(formFields)
 
   return (
     <section className={classes.wrapper}>

@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { userSelector } from '../../features/auth'
 import { useGetDocumentsQuery } from '../../services/documents'
@@ -7,6 +8,8 @@ import classes from './Documents.module.css'
 const Documents = () => {
   const { user, isAuthenticated } = useSelector(userSelector)
   const { data: documents } = useGetDocumentsQuery()
+
+  if (documents) console.log(documents[0])
 
   if (!isAuthenticated)
     return (
@@ -20,7 +23,11 @@ const Documents = () => {
       <h1>My Documents</h1>
       <ul>
         {documents?.map(doc => (
-          <li key={doc.id}>{doc.name}</li>
+          <li key={doc.id} className={classes.document}>
+            <Link to={`/documents/${doc.id}`} className={classes.documentLink}>
+              {doc.name}
+            </Link>
+          </li>
         ))}
       </ul>
     </section>

@@ -1,14 +1,14 @@
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-import { userSelector } from '../features/auth'
-import { useGetFormQuery } from '../services/formstack'
-import { processFormHTML } from '../utils'
-
-import classes from './UserForm.module.css'
+import { userSelector } from '../../features/auth'
+import { useGetFormQuery } from '../../services/formstack'
+import { processFormHTML } from '../../utils'
 import BeatLoader from 'react-spinners/BeatLoader'
 
-const UserForm = () => {
+import classes from './Form.module.css'
+
+const Form = () => {
   const { id } = useParams()
   const {
     user: { token }
@@ -29,4 +29,4 @@ const UserForm = () => {
   )
 }
 
-export default UserForm
+export default Form

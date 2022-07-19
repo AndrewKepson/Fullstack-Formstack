@@ -1,4 +1,4 @@
-import { Hero } from '../components/Hero/Hero'
+import { Hero } from '../../components/Hero/Hero'
 import classes from './Home.module.css'
 
 const Home = () => (

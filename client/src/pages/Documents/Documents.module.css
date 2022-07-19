@@ -1,4 +1,13 @@
 .documentsContainer {
-    display: grid;
-    place-content: center;
+  display: grid;
+  place-content: center;
+}
+
+.document {
+  list-style: none;
+}
+
+.documentLink {
+  text-decoration: none;
+  cursor: pointer;
 }
