@@ -5,8 +5,6 @@ import { Routes, Route } from 'react-router-dom'
 import { setUser } from './features/auth'
 import { Layout } from './components'
 
-import './App.css'
-
 import {
   Home,
   Auth,
