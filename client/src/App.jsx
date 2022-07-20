@@ -12,7 +12,7 @@ import {
   Auth,
   Profile,
   Forms,
-  UserForm,
+  Form,
   EditForm,
   Submissions,
   FormToDocument,
@@ -47,7 +47,7 @@ const App = () => {
         />
         <Route path='/documents/:id' element={<Document />} />
         <Route path='/forms' element={<Forms />} />
-        <Route path='/forms/:id' element={<UserForm />} />
+        <Route path='/forms/:id' element={<Form />} />
         <Route path='/forms/:id/submissions' element={<Submissions />} />
         <Route path='/forms/:id/edit' element={<EditForm />} />
         <Route path='/sign' element={<Sign />} />

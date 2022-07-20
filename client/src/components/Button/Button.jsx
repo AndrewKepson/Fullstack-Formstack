@@ -1,27 +1,16 @@
 import { useNavigate } from 'react-router-dom'
 
-import classes from './Button.module.css'
+import * as Styled from './styles'
 
 export const Button = ({ text, href, navigateTo, handler }) => {
   const navigate = useNavigate()
 
   if (navigateTo)
     return (
-      <span className={classes.button} onClick={() => navigate(navigateTo)}>
-        {text}
-      </span>
+      <Styled.Button onClick={() => navigate(navigateTo)}>{text}</Styled.Button>
     )
 
-  if (handler)
-    return (
-      <span className={classes.button} onClick={handler}>
-        {text}
-      </span>
-    )
+  if (handler) return <Styled.Button onClick={handler}>{text}</Styled.Button>
 
-  return (
-    <a className={classes.button} href={href}>
-      {text}
-    </a>
-  )
+  return <Styled.ButtonAnchor href={href}>{text}</Styled.ButtonAnchor>
 }

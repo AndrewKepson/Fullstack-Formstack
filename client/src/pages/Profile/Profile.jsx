@@ -1,22 +1,32 @@
 import { useSelector } from 'react-redux'
 
 import { userSelector } from '../../features/auth'
-import { useGetFormsQuery } from '../../services/formstack'
+import {
+  useGetFormsQuery,
+  useGetFormSubmissionsQuery
+} from '../../services/formstack'
 
 import { Dashboard } from '../../components'
-import classes from './Profile.module.css'
+
+import * as Styled from './styles'
 
 const ProfilePage = () => {
   const { user, isAuthenticated } = useSelector(userSelector)
-  const { data } = useGetFormsQuery()
+  const { data } = useGetFormsQuery(user.token)
+
+  // const submissionsData = forms => {
+  //   forms.forEach(form =>
+  //     useGetFormSubmissionsQuery({ form.id, user.token })
+  //   )
+  // }
 
   if (!isAuthenticated) return <h1>Please Login</h1>
 
   return (
-    <section className={classes.profile}>
-      <h1 className={classes.heading}>Your Profile</h1>
+    <Styled.Profile>
+      <Styled.Heading>Your Profile</Styled.Heading>
       <Dashboard data={data} />
-    </section>
+    </Styled.Profile>
   )
 }
 

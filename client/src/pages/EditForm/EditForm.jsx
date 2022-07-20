@@ -4,8 +4,9 @@ import { useParams } from 'react-router-dom'
 import { userSelector } from '../../features/auth'
 import { useGetFormQuery } from '../../services/formstack'
 
-import classes from './EditForm.module.css'
 import { FormEditor } from '../../components'
+
+import * as Styled from './styles'
 
 const EditForm = () => {
   const { id } = useParams()
@@ -30,14 +31,14 @@ const EditForm = () => {
   return (
     <section>
       <div>
-        <h1>Editing Form: {data?.name}</h1>
-        <div classname={classes.workspaceWrapper}>
+        <Styled.Header>Editing Form: {data?.name}</Styled.Header>
+        <Styled.WorkSpace>
           <FormEditor
             columns={data?.num_columns}
             fields={data?.fields}
             updateForm={updateForm}
           />
-        </div>
+        </Styled.WorkSpace>
       </div>
     </section>
   )

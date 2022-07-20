@@ -1,4 +1,4 @@
-import classes from './Submission.module.css'
+import * as Styled from './styles'
 
 export const Submission = ({ submission }) => {
   const { id, latitude, longitude, timestamp, user_agent } = submission
@@ -17,19 +17,17 @@ export const Submission = ({ submission }) => {
   }
 
   return (
-    <div className={classes.submissionWrapper}>
-      <div className={classes.card}>
-        <div className={classes.cardTop}>
-          <div className={classes.submissionHeading}>
+    <Styled.Wrapper>
+      <Styled.Card>
+        <Styled.CardTop>
+          <Styled.Heading>
             <span>Data for Submission {id}</span>{' '}
             <span>{formatDate(timestamp)}</span>
-          </div>
-          <span className={classes.submissionDetails}>
-            Submitted by a user via {user_agent}.
-          </span>
-        </div>
-        <div className={classes.cardBottom}></div>
-      </div>
-    </div>
+          </Styled.Heading>
+          <Styled.Details>Submitted by a user via {user_agent}.</Styled.Details>
+        </Styled.CardTop>
+        <Styled.CardBottom></Styled.CardBottom>
+      </Styled.Card>
+    </Styled.Wrapper>
   )
 }

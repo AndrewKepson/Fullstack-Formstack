@@ -4,7 +4,7 @@ import { useGetFormsQuery } from '../../services/formstack'
 import { userSelector } from '../../features/auth'
 import { FormCard } from '../../components'
 
-import classes from './Forms.module.css'
+import * as Styled from './styles'
 
 const Forms = () => {
   const { user, isAuthenticated } = useSelector(userSelector)
@@ -20,15 +20,15 @@ const Forms = () => {
 
   return (
     <section>
-      <div className={classes.container}>
+      <Styled.Container>
         <h1>My Forms</h1>
-        <div className={classes.formsContainer}>
+        <Styled.Forms>
           {data?.forms?.map(form => (
             <FormCard key={form.id} form={form} />
           ))}
           {/* Add delete button & edit button */}
-        </div>
-      </div>
+        </Styled.Forms>
+      </Styled.Container>
     </section>
   )
 }

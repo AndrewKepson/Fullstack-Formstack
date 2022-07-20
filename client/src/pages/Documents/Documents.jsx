@@ -2,11 +2,14 @@ import { useSelector } from 'react-redux'
 
 import { userSelector } from '../../features/auth'
 import { useGetDocumentsQuery } from '../../services/documents'
-import classes from './Documents.module.css'
+
+import * as Styled from './styles'
 
 const Documents = () => {
   const { user, isAuthenticated } = useSelector(userSelector)
   const { data: documents } = useGetDocumentsQuery()
+
+  if (documents) console.log(documents[0])
 
   if (!isAuthenticated)
     return (
@@ -16,14 +19,18 @@ const Documents = () => {
     )
 
   return (
-    <section className={classes.documentsContainer}>
+    <Styled.Documents>
       <h1>My Documents</h1>
       <ul>
         {documents?.map(doc => (
-          <li key={doc.id}>{doc.name}</li>
+          <Styled.Document key={doc.id}>
+            <Styled.DocumentLink to={`/documents/${doc.id}`}>
+              {doc.name}
+            </Styled.DocumentLink>
+          </Styled.Document>
         ))}
       </ul>
-    </section>
+    </Styled.Documents>
   )
 }
 
