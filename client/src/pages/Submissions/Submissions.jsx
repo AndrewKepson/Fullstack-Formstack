@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom'
 import { useGetFormSubmissionsQuery } from '../../services/formstack'
 import { userSelector } from '../../features/auth'
 
-import classes from './Submissions.module.css'
 import BeatLoader from 'react-spinners/BeatLoader'
 import { Submission } from '../../components'
+
+import * as Styled from './styles'
 
 const Submissions = () => {
   const { id } = useParams()
@@ -22,17 +23,17 @@ const Submissions = () => {
   return (
     <section>
       <h1>My Submissions for Form.Name</h1>
-      <div className={classes.submissionsWrapper}>
+      <Styled.Wrapper>
         {data?.submissions?.length > 0 ? (
           data?.submissions?.map(submission => (
             <Submission key={submission.id} submission={submission} />
           ))
         ) : (
-          <span className={classes.noSubmissions}>
+          <Styled.NoSubmissions>
             This Form has not yet received any submissions.
-          </span>
+          </Styled.NoSubmissions>
         )}
-      </div>
+      </Styled.Wrapper>
     </section>
   )
 }

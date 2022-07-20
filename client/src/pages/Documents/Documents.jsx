@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import { userSelector } from '../../features/auth'
 import { useGetDocumentsQuery } from '../../services/documents'
-import classes from './Documents.module.css'
+
+import * as Styled from './styles'
 
 const Documents = () => {
   const { user, isAuthenticated } = useSelector(userSelector)
@@ -19,18 +19,18 @@ const Documents = () => {
     )
 
   return (
-    <section className={classes.documentsContainer}>
+    <Styled.Documents>
       <h1>My Documents</h1>
       <ul>
         {documents?.map(doc => (
-          <li key={doc.id} className={classes.document}>
-            <Link to={`/documents/${doc.id}`} className={classes.documentLink}>
+          <Styled.Document key={doc.id}>
+            <Styled.DocumentLink to={`/documents/${doc.id}`}>
               {doc.name}
-            </Link>
-          </li>
+            </Styled.DocumentLink>
+          </Styled.Document>
         ))}
       </ul>
-    </section>
+    </Styled.Documents>
   )
 }
 

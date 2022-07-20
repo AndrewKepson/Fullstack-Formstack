@@ -6,7 +6,7 @@ import { useGetFormQuery } from '../../services/formstack'
 import { processFormHTML } from '../../utils'
 import BeatLoader from 'react-spinners/BeatLoader'
 
-import classes from './Form.module.css'
+import * as Styled from './styles'
 
 const Form = () => {
   const { id } = useParams()
@@ -18,14 +18,11 @@ const Form = () => {
   if (isLoading) return <BeatLoader />
 
   return (
-    <section className={classes.container}>
-      <div className={classes.formWrapper}>
-        <div
-          className={classes.formContent}
-          dangerouslySetInnerHTML={{ __html: data?.html }}
-        />
-      </div>
-    </section>
+    <Styled.Container>
+      <Styled.Wrapper>
+        <Styled.Content dangerouslySetInnerHTML={{ __html: data?.html }} />
+      </Styled.Wrapper>
+    </Styled.Container>
   )
 }
 

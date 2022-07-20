@@ -1,7 +1,7 @@
 export { default as Home } from './Home/Home'
 export { default as Profile } from './Profile/Profile'
 export { default as FormToDocument } from './FormToDocument'
-export { default as ClientFetch } from './ClientFetch'
+export { default as ClientFetch } from './ClientFetch/ClientFetch'
 export { default as Auth } from './Auth'
 export { default as Forms } from './Forms/Forms'
 export { default as Form } from './Form/Form'

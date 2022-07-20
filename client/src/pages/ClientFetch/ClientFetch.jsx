@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-import classes from './ClientFetch.module.css'
+import * as Styled from './styles'
 
 const ClientFetch = () => {
   const [documentsState, setDocumentsState] = useState(null)
@@ -23,7 +23,7 @@ const ClientFetch = () => {
     const credentials = await credentialsResult.json()
 
     const result = await axios.get(`https://www.webmerge.me/api/documents`, {
-      auth: { username: credentials.key, password: credentials.secret },
+      auth: { username: credentials.key, password: credentials.secret }
     })
 
     const documents = [...result.data]
@@ -32,15 +32,15 @@ const ClientFetch = () => {
   }
 
   return (
-    <div style={{ display: 'grid', placeItems: 'center' }}>
-      <button type="button" onClick={fetchDocuments}>
+    <Styled.Container>
+      <button type='button' onClick={fetchDocuments}>
         Fetch Documents (Client Side)
       </button>
-      <div className={classes.documentsWrapper}>
+      <Styled.Documents>
         {documentsState !== null &&
           documentsState.map(doc => <Document key={doc.id} document={doc} />)}
-      </div>
-    </div>
+      </Styled.Documents>
+    </Styled.Container>
   )
 }
 

@@ -10,9 +10,9 @@ export const FormCard = ({ form }) => (
         <Styled.FormLink to={`/forms/${form.id}`}>
           <Styled.Title>{form.name}</Styled.Title>
         </Styled.FormLink>
-        <div className={classes.icons}>
+        <div>
           <Link to={`/forms/${form.id}/edit`}>
-            <FiEdit className={classes.editIcon} />
+            <Styled.EditIcon />
           </Link>
         </div>
       </Styled.UpperLeft>

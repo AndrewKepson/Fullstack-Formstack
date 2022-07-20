@@ -7,7 +7,8 @@ import {
 } from '../../services/formstack'
 
 import { Dashboard } from '../../components'
-import classes from './Profile.module.css'
+
+import * as Styled from './styles'
 
 const ProfilePage = () => {
   const { user, isAuthenticated } = useSelector(userSelector)
@@ -22,10 +23,10 @@ const ProfilePage = () => {
   if (!isAuthenticated) return <h1>Please Login</h1>
 
   return (
-    <section className={classes.profile}>
-      <h1 className={classes.heading}>Your Profile</h1>
+    <Styled.Profile>
+      <Styled.Heading>Your Profile</Styled.Heading>
       <Dashboard data={data} />
-    </section>
+    </Styled.Profile>
   )
 }
 

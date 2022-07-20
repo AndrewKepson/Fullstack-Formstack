@@ -1,9 +1,10 @@
 import { Hero } from '../../components/Hero/Hero'
-import classes from './Home.module.css'
+
+import * as Styled from './styles'
 
 const Home = () => (
-  <section className={classes.container}>
-    <h1 className={classes.heading1}>Welcome to Fullstack Formstack</h1>
+  <Styled.Container>
+    <Styled.HeadingOne>Welcome to Fullstack Formstack</Styled.HeadingOne>
     <Hero />
     <p>
       Fullstack Formstack is a React web application filled with examples for
@@ -16,7 +17,7 @@ const Home = () => (
       Node server to interact with the Formstack API, and in turn the front end
       interacts with the Node server and manages state with Redux Toolkit.
     </p>
-  </section>
+  </Styled.Container>
 )
 
 export default Home

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-import classes from './FormEditor.module.css'
+import * as Styled from './styles'
 
 export const FormEditor = ({ columns, fields, updateForm }) => {
   const [formFields, updateFormFields] = useState(fields)
@@ -21,7 +21,7 @@ export const FormEditor = ({ columns, fields, updateForm }) => {
   console.log(formFields)
 
   return (
-    <section className={classes.wrapper}>
+    <Styled.Wrapper>
       <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId='formFields'>
           {provided => (
@@ -29,11 +29,10 @@ export const FormEditor = ({ columns, fields, updateForm }) => {
               {formFields?.map((field, i) => (
                 <Draggable key={field.id} draggableId={field.id} index={i}>
                   {provided => (
-                    <div
+                    <Styled.FormField
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
-                      ref={provided.innerRef}
-                      className={classes.formFieldWrapper}>
+                      ref={provided.innerRef}>
                       <input
                         label={field.label}
                         type={field.type}
@@ -42,7 +41,7 @@ export const FormEditor = ({ columns, fields, updateForm }) => {
                       <label htmlFor={field.name}>
                         {field.label || 'Field Label'}
                       </label>
-                    </div>
+                    </Styled.FormField>
                   )}
                 </Draggable>
               ))}
@@ -51,6 +50,6 @@ export const FormEditor = ({ columns, fields, updateForm }) => {
           )}
         </Droppable>
       </DragDropContext>
-    </section>
+    </Styled.Wrapper>
   )
 }

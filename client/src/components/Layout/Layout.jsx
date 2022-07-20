@@ -1,11 +1,11 @@
 import { Header, Footer } from '../../components'
 
-import classes from './Layout.module.css'
+import * as Styled from './styles'
 
 export const Layout = ({ children }) => (
   <>
     <Header />
-    <main className={classes.main}>{children}</main>
+    <Styled.Main>{children}</Styled.Main>
     <Footer />
   </>
 )
