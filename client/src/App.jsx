@@ -38,16 +38,19 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/authorization' element={<Auth />} />
-        <Route path='/documents' element={<Documents />} />
-        <Route
-          path='/documents/form-to-document'
-          element={<FormToDocument />}
-        />
-        <Route path='/documents/:id' element={<Document />} />
-        <Route path='/forms' element={<Forms />} />
-        <Route path='/forms/:id' element={<Form />} />
-        <Route path='/forms/:id/submissions' element={<Submissions />} />
-        <Route path='/forms/:id/edit' element={<EditForm />} />
+        <Route path='/documents'>
+          <Route index element={<Documents />} />
+          <Route path='form-to-document' element={<FormToDocument />} />
+          <Route path=':id' element={<Document />} />
+        </Route>
+        <Route path='/forms'>
+          <Route index element={<Forms />} />
+          <Route path=':id'>
+            <Route index element={<Form />} />
+            <Route path='submissions' element={<Submissions />} />
+            <Route path='edit' element={<EditForm />} />
+          </Route>
+        </Route>
         <Route path='/sign' element={<Sign />} />
         <Route path='/client-fetch' element={<ClientFetch />} />
         <Route path='/profile' element={<Profile />} />
