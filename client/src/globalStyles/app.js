@@ -1,3 +1,6 @@
+import { createGlobalStyle } from 'styled-components'
+
+export const AppStyles = createGlobalStyle`
 /* Theme Colors */
 :root {
   --formstack-green: rgb(28, 181, 115);
@@ -30,3 +33,4 @@ button {
 body {
   height: 100%;
 }
+`

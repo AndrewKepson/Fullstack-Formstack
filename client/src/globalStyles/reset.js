@@ -1,3 +1,6 @@
+import { createGlobalStyle } from 'styled-components'
+
+export const CSSReset = createGlobalStyle`
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -681,3 +684,4 @@ pre tt:after {
     font-size: 100%;
   }
 }
+`
